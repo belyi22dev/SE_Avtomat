@@ -1,0 +1,340 @@
+:root {
+    --primary-bg: #1A1A1D;
+    --secondary-bg: #2D2D32;
+    --accent: #6C63FF;
+    --secondary-accent: #00BFA5;
+    --text: #E5E5E5;
+}
+
+/* Стили для первых переключателей */
+body {
+    background: linear-gradient(45deg, #292929 25%, transparent 25%, transparent 75%, #292929 75%), 
+                linear-gradient(45deg, #292929 25%, transparent 25%, transparent 75%, #292929 75%) 0.1875em 0.1875em, 
+                radial-gradient(at 50% 0, #484847, #484847);
+    background-size: 0.375em 0.375em, 0.375em 0.375em, 100% 100%;
+    color: var(--text);
+    font-family: 'Orbitron', sans-serif;
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.switches-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.switch {
+    width: 79.2px;
+    height: 22px;
+    position: relative;
+}
+
+.switch input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #333336;
+    border-radius: 17.6px;
+    box-shadow:
+        inset 0 1.32px 3.52px 0.44px rgba(0,0,0,0.5),
+        inset 0 -0.44px 0 rgba(255,255,255,0.1);
+    cursor: pointer;
+    transition: background 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.switch label:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -3.52px; right: -3.52px; bottom: -3.52px; left: -3.52px;
+    border-radius: inherit;
+    background: linear-gradient(#252527, #1E1E20);
+    box-shadow: 
+        0 0 4.4px rgba(0,0,0,0.6),
+        0 0.44px 0.44px rgba(255,255,255,0.05);
+    transition: all 0.4s ease;
+}
+
+.switch label:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -7.92px; right: -7.92px; bottom: -7.92px; left: -7.92px;
+    border-radius: inherit;
+    background: linear-gradient(#2a2a2d9e, #ffffff59);
+    box-shadow: 0 0.44px 0 rgba(255,255,255,0.03);
+    filter: blur(0.44px);
+    transition: all 0.4s ease;
+}
+
+.switch label i {
+    display: block;
+    height: 100%;
+    width: 60%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    border-radius: inherit;
+    background: linear-gradient(#3A3A3D, #323236);
+    box-shadow:
+        inset 0 0.44px 0 rgba(255,255,255,0.1),
+        0 0 3.52px rgba(0,0,0,0.6),
+        0 2.2px 2.2px rgba(0,0,0,0.4);
+    transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+    transform: translateX(0);
+}
+
+.switch label i:after {
+    content: "";
+    position: absolute;
+    left: 15%;
+    top: 25%;
+    width: 70%;
+    height: 50%;
+    background: linear-gradient(#2E2E32, #28282B);
+    border-radius: inherit;
+    transition: all 0.4s ease;
+}
+
+.switch label i:before {
+    content: "off";
+    position: absolute;
+    top: 50%;
+    right: -50%;
+    margin-top: -5.28px;
+    color: rgba(255,255,255,0.6);
+    font-style: normal;
+    font-weight: bold;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 10.56px;
+    text-transform: uppercase;
+    text-shadow: 0 0.44px 0 rgba(0,0,0,0.5), 0 -0.44px 0 rgba(0,0,0,0.3);
+    transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.switch input:checked ~ label {
+    background: #5A52CC;
+}
+
+.switch input:checked ~ label i {
+    transform: translateX(30.4px);
+    background: linear-gradient(#6C63FF, #5A52CC);
+}
+
+.switch input:checked ~ label i:before {
+    content: "on";
+    right: auto;
+    right: 115%;
+    color: rgba(255,255,255,0.8);
+}
+
+.switch-demo4 {
+    margin: 50px auto;
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.switch-demo4 input {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 100;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.switch-demo4 .fa-power-off {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.switch-demo4 .fa-power-off:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    border-radius: 50%;
+    background: linear-gradient(#3A3A3D, #29292c);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.1),
+        0 2px 4px rgba(0,0,0,0.5);
+}
+
+.switch-demo4 label {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+    border-radius: 50%;
+    background: #333336;
+    color: #a5a39d;
+    font-size: 85px;
+    text-align: center;
+    line-height: 150px;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+    text-shadow: 0 2px 1px rgba(0,0,0,0.25);
+    z-index: -1;
+    box-shadow:
+        inset 0 2px 5px rgba(0,0,0,0.5),
+        inset 0 -2px 2px rgba(255,255,255,0.1);
+}
+
+.switch-demo4 label:hover {
+    transform: scale(1.05);
+}
+
+.switch-demo4 label:after {
+    content: "";
+    position: absolute;
+    left: -10px;
+    right: -10px;
+    top: -10px;
+    bottom: -10px;
+    z-index: -2;
+    border-radius: 50%;
+    background: linear-gradient(#252527, #1E1E20);
+    box-shadow:
+        0 0 10px rgba(0,0,0,0.6),
+        0 2px 2px rgba(255,255,255,0.05);
+}
+
+.switch-demo4 label:before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    right: -20px;
+    top: -20px;
+    bottom: -20px;
+    z-index: -3;
+    border-radius: 50%;
+    background: linear-gradient(#2a2a2d9e, #ffffff59);
+    filter: blur(2px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.03);
+}
+
+.switch-demo4 input:checked ~ label {
+    box-shadow:
+        inset 0 3px 6px rgba(0,0,0,0.6),
+        inset 0 -1px 1px rgba(255,255,255,0.2);
+    transform: translateY(2px);
+}
+
+.switch-demo4 input:checked ~ label i {
+    color: var(--accent, #00ff99);
+    text-shadow: 0 0 5px var(--accent, #00ff99),
+                 0 0 10px var(--accent, #00ff99),
+                 0 0 20px var(--accent, #00ff99);
+    animation: glowPulse 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+    from {
+        text-shadow: 0 0 5px var(--accent, #00ff99);
+    }
+    to {
+        text-shadow: 0 0 20px var(--accent, #00ff99), 0 0 30px var(--accent, #00ff99);
+    }
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-top: 1px solid #2a2a2a;
+    z-index: 100;
+    animation: slideUp 1.6s ease-out;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-item {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #aaa;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.nav-item:hover {
+    color: #00ffcc;
+    transform: translateY(-3px);
+}
+
+.nav-item i {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+} 
+
+.main-title {
+  color: rgb(0 0 0 / 50%);
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(2rem, 8vw, 6rem);
+  letter-spacing: clamp(2px, 1vw, 8px);
+  text-shadow: rgba(241, 241, 241, 0.05) 
+    clamp(1px, 0.3vw, 3px) 
+    clamp(1px, 0.2vw, 2px) 
+    clamp(1px, 0.3vw, 3px);
+  word-break: keep-all;
+  
+  /* Ограничиваем максимальную ширину */
+  max-width: 90vw;
+  
+  /* Добавляем боковые отступы */
+  padding-bottom: 20px;
+  margin: 0 auto;
+}
+
+hr {
+    height: 6px;
+    width: 90%;
+    border: 0;
+    box-shadow: rgba(241, 241, 241, 0.05) 3px 2px 3px;
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
+    background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
+    background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
+}
